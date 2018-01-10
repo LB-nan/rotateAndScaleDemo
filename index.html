@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>旋转跳跃我不停歇</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/css.css"/>
+	</head>
+	<script type="text/javascript" src="js/m.Tween.js"></script>
+	<script type="text/javascript">
+		(function(){
+			setRem();
+			window.addEventListener('orientation' in window ? "deviceorientation" : "resize",setRem);
+			function setRem(){
+				var html = document.documentElement;
+				var width = html.clientWidth;
+				html.style.fontSize = width/16 + 'px';
+			}
+		})();
+	</script>
+	<body>
+		<header>头部</header>
+		<div id="box">
+			<div id="inner">
+				<ul id="list">
+				</ul>
+				<footer>加载更多</footer>
+			</div>
+		</div>
+		<section id="imgPage">
+			<header>预览图 <a href="javascript:;" id="backBtn"><</a>  </header>
+			<div class="imgWrap">
+				<img src="img/pics/1.jpg" id="bigImg"/>
+				<nav id="imgNav">
+					<a href="javascript:;">向左旋转</a>
+					<a href="javascript:;">向右旋转</a>
+					<a href="javascript:;">放大</a>
+					<a href="javascript:;">缩小</a>
+				</nav>
+			</div>
+		</section>
+		<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>
