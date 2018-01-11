@@ -16,6 +16,7 @@ document.addEventListener('touchstart',function(e){
 	var length = 12;
 	var start = 0;
 	var isEnd = false;
+	var timeNum = 0;
 	for (var i = 0;i <26; i++) {
 		imgData.push('img/pics/'+ (i%26+1) +'.jpg');
 	}
@@ -48,10 +49,13 @@ document.addEventListener('touchstart',function(e){
 				if(this.isMove) {
 					return;
 				}
-				css(bigImg,"scale",100);
-				css(bigImg,"rotate",0);
-				bigImg.src = this.children[0].src;
-				css(imgPage,"scale",100);	
+				if( timeNum < 5 ){
+					css(bigImg,"scale",100);
+					css(bigImg,"rotate",0);
+					bigImg.src = this.children[0].src;
+					css(imgPage,"scale",100);
+				}	
+				timeNum = 0;
 			});
 			list.appendChild(li);
 		}
@@ -114,6 +118,8 @@ document.addEventListener('touchstart',function(e){
 //				}
 			},
 			move(e){
+				timeNum++;
+				console.log('移动的时间为：'+timeNum);
 				createImg()
 			},
 			end(e){
@@ -127,6 +133,7 @@ document.addEventListener('touchstart',function(e){
 					document.querySelector('#scrollBar').style.opacity = 0;
 					isEnd = false;
 				}
+				
 			},
 			over(e){
 				console.log('running end');
